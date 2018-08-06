@@ -1,38 +1,38 @@
 [
     {
-        "short":    "churchStDeme",
-        "title":    "Church of St. Demetrios",
-        "kind":     "Orthodox Church",
-        "position": { "lat": 40.6387964, "lng": 22.9441451 }
+        "short":    "acropAthen",
+        "title":    "Acropolis of Athens",
+        "kind":     "Ancient Place",
+        "position": { "lat": 37.971058, "lng": 23.7261356 }
     },
     {
-        "short":    "prophElijaCh",
-        "title":    "Prophet Elijah Church",
-        "kind":     "Orthodox Church",
-        "position": { "lat": 40.6408866, "lng": 22.9441832 }
+        "short":    "odeoHerodA",
+        "title":    "Odeon of Herodes Atticus",
+        "kind":     "Ancient Place",
+        "position": { "lat": 37.9704902, "lng": 23.7248751 }
     },
     {
-        "short":    "churchStAnar",
-        "title":    "Church of St. Anargyroi Eptapyrgiou",
-        "kind":     "Orthodox Church",
-        "position": { "lat": 40.6413221, "lng": 22.9594181 }
-    },
-    {
-        "short":    "trigonTower",
-        "title":    "Trigoniou Tower",
-        "kind":     "Tower",
-        "position": { "lat": 40.640394, "lng": 22.9602227 }
-    },
-    {
-        "short":    "alatzImare",
-        "title":    "Alatza Imaret",
+        "short":    "acropoMuseu",
+        "title":    "Acropolis Museum",
         "kind":     "Museum",
-        "position": { "lat": 40.6388137, "lng": 22.94984 }
+        "position": { "lat": 37.9679793, "lng": 23.7290324 }
     },
     {
-        "short":    "vlataMonast",
-        "title":    "Vlatadon Monastery",
-        "kind":     "Monastery",
-        "position": { "lat": 40.6416646, "lng": 22.9547699 }
+        "short":    "athUniHistMus",
+        "title":    "Athens University History Museum",
+        "kind":     "Museum",
+        "position": { "lat": 37.9726839, "lng": 23.7270355 }
+    },
+    {
+        "short":    "jewMusGre",
+        "title":    "Jewish Museum of Greece",
+        "kind":     "Museum",
+        "position": { "lat": 37.9727009, "lng": 23.733623 }
+    },
+    {
+        "short":    "ancAgorAth",
+        "title":    "Ancient Agora of Athens",
+        "kind":     "Ancient Place",
+        "position": { "lat": 37.9744642, "lng": 23.7222075 }
     }
 ]
