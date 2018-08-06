@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import * as dataLocations from './locations.json';
-
+import Locations from './Locations';
+import InfoBox from './InfoBox';
 import './App.css';
 
 function loadJS (src) {
@@ -126,7 +127,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
+        <Locations
+          locationsList={this.state.locations}
+          markers={this.state.markers}
+          openInfoBox={this.openInfoBox}
+        />
+
+        {
+          this.state.isInfoBoxOpen &&
+          <InfoBox
+            currentMarker={this.state.currentMarker}
+            infoContent={this.state.infoContent}
+          />
+        }
         <div id="map" role="application"></div>
       </div>
     );
