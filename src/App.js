@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import * as dataLocations from './locations.json';
 import './App.css';
 
 class App extends Component {

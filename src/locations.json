@@ -1,0 +1,38 @@
+[
+    {
+        "short":    "churchStDeme",
+        "title":    "Church of St. Demetrios",
+        "kind":     "Orthodox Church",
+        "position": { "lat": 40.6387964, "lng": 22.9441451 }
+    },
+    {
+        "short":    "prophElijaCh",
+        "title":    "Prophet Elijah Church",
+        "kind":     "Orthodox Church",
+        "position": { "lat": 40.6408866, "lng": 22.9441832 }
+    },
+    {
+        "short":    "churchStAnar",
+        "title":    "Church of St. Anargyroi Eptapyrgiou",
+        "kind":     "Orthodox Church",
+        "position": { "lat": 40.6413221, "lng": 22.9594181 }
+    },
+    {
+        "short":    "trigonTower",
+        "title":    "Trigoniou Tower",
+        "kind":     "Tower",
+        "position": { "lat": 40.640394, "lng": 22.9602227 }
+    },
+    {
+        "short":    "alatzImare",
+        "title":    "Alatza Imaret",
+        "kind":     "Museum",
+        "position": { "lat": 40.6388137, "lng": 22.94984 }
+    },
+    {
+        "short":    "vlataMonast",
+        "title":    "Vlatadon Monastery",
+        "kind":     "Monastery",
+        "position": { "lat": 40.6416646, "lng": 22.9547699 }
+    }
+]
