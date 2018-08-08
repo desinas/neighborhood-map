@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import fetchJsonp from 'fetch-jsonp';
 
 import * as data from './locations.json';
-import Locations from './Locations';
+import Places from './Places';
 import InfoBox from './InfoBox';
 import './App.css';
 
@@ -117,7 +117,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Locations
+        <Places
           locationsList={this.state.locations}
           markers={this.state.markers}
           openInfoBox={this.openInfoBox}

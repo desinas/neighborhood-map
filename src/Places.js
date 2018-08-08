@@ -12,7 +12,7 @@ import * as data from './locations.json';
  * @prop {object} currentMarker - marker of choice
  * @prop {bool} isListEnable - value true for list enable
  */
-class Locations extends Component {
+class Places extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -43,7 +43,7 @@ class Locations extends Component {
 			isListEnable: false
 		});
 		}
-		this.handleDisplayedLocations(query);
+		this.handleDisplayedPlaces(query);
 	}
 
 	toggleListVisibility = () => {
@@ -57,16 +57,16 @@ class Locations extends Component {
 	 * add marker to the array if its title match the query,
 	 * display the markers on the map accordingly to the state.
 	 */
-	handleDisplayedLocations = (query) => {
+	handleDisplayedPlaces = (query) => {
 		
 		let that = this;
-		let filtLocations;
+		let filtPlaces;
 		let filtMarkers;
 
 		if (query) {
 			const match = new RegExp(escapeRegExp(query), 'i');
 
-			filtLocations = this.props.locationsList.filter(location =>
+			filtPlaces = this.props.locationsList.filter(location =>
 				match.test(location.title)
 			);
 
@@ -75,7 +75,7 @@ class Locations extends Component {
 			);
 
 			this.setState({
-				locations: filtLocations,
+				locations: filtPlaces,
 				markers: filtMarkers
 			});
 		} else {
@@ -196,4 +196,4 @@ class Locations extends Component {
 	}
 }
 
-export default Locations;
+export default Places;
