@@ -1,38 +1,38 @@
 [
     {
-        "short":    "acropAthen",
+        "key":      "acropAthen",
         "title":    "Acropolis of Athens",
         "kind":     "Ancient Place",
         "position": { "lat": 37.971058, "lng": 23.7261356 }
     },
     {
-        "short":    "odeoHerodA",
+        "key":      "odeoHerodA",
         "title":    "Odeon of Herodes Atticus",
         "kind":     "Ancient Place",
         "position": { "lat": 37.9704902, "lng": 23.7248751 }
     },
     {
-        "short":    "acropoMuseu",
+        "key":      "acropoMuseu",
         "title":    "Acropolis Museum",
         "kind":     "Museum",
         "position": { "lat": 37.9679793, "lng": 23.7290324 }
     },
     {
-        "short":    "athUniHistMus",
-        "title":    "Athens University History Museum",
-        "kind":     "Museum",
-        "position": { "lat": 37.9726839, "lng": 23.7270355 }
+        "key":      "oldTemplAth",
+        "title":    "Old Temple of Athena",
+        "kind":     "Ancient Place",
+        "position": { "lat": 37.9723329, "lng": 23.7264991 }
     },
     {
-        "short":    "jewMusGre",
+        "key":      "jewMusGre",
         "title":    "Jewish Museum of Greece",
         "kind":     "Museum",
         "position": { "lat": 37.9727009, "lng": 23.733623 }
     },
     {
-        "short":    "ancAgorAth",
-        "title":    "Ancient Agora of Athens",
+        "key":      "propylaea",
+        "title":    "Propylaea",
         "kind":     "Ancient Place",
-        "position": { "lat": 37.9744642, "lng": 23.7222075 }
+        "position": { "lat": 37.971484, "lng": 23.7253685 }
     }
 ]

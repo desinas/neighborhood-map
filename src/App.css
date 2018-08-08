@@ -36,11 +36,11 @@ body,
 }
 
 .list-btn {
-	border: none;
-	padding: 5px 8px;
 	background: #fff;
 	font-weight: 600;
-	border-radius: 2px 0 0 2px;
+	padding: 7px 9px;
+	border: none;
+	border-radius: 3px 0 0 3px;
 }
 
 .list-btn:hover {
@@ -48,47 +48,47 @@ body,
 }
 
 .list-input {
+	padding: 7px 9px;
 	border: none;
-	padding: 5px 8px;
 	border-radius: 0 2px 2px 0;
 }
 
-.locations-list {
-	padding: 0 10px 10px 10px;
+.place-list {
 	list-style: none;
 	background: #fff;
 	max-width: 250px;
+	padding: 0 10px 10px 10px;
 }
 
-.location-item {
+.place-item {
 	padding: 10px 0;
 	border-bottom: 4px solid #fff;
 }
 
-.location-item:hover {
-	border-color: #35b4bf;
-	color: #35b4bf;
+.place-item:hover {
+	color: #35bf96;
 	cursor: pointer;
+	border-color: #35bf96;
 }
 
-/* Informations */
+/* Information */
 .info-box {
+	width: 320px;
+	min-height: 240px;
+	height: 40%;
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	z-index: 50;
-	width: 250px;
-	height: 50%;
-	min-height: 250px;
 	overflow: auto;
-	background: #fff;
+	background: #ebebeb;
 	padding: 10px;
 	border-radius: 2px 2px 0 0;
 }
 
 .info-box h2 {
-	border-bottom: 2px solid #bbb;
 	padding: 0 0 5px 0;
+	border-bottom: 2px solid #bbb;
 	margin: 0 0 10px 0;
 }
 

@@ -1,42 +1,46 @@
 import React, { Component } from 'react';
 import escapeRegExp from 'escape-string-regexp';
 
-import * as dataLocations from './locations.json';
+import * as data from './locations.json';
 
-class FilterLocations extends Component {
+/**
+ * @description Implement of locations component
+ * for places to show in the list and markers.
+ * @prop {string} query - search input to find places
+ * @prop {object} locations - all places data
+ * @prop {object} markers - array of markers
+ * @prop {object} currentMarker - marker of choice
+ * @prop {bool} isListEnable - value true for list enable
+ */
+class Locations extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			query: '',
-			locations: dataLocations,
+			locations: data,
 			markers: [],
 			currentMarker: {},
-			listIsOpen: true
+			isListEnable: true
 		};
 	}
 
 	componentDidMount() {
-		/* Set the markers state to the value of the props */
+
 		this.setState({
 			markers: this.props.markers
 		});
 	}
 
-	/* 
-	 * Update the visible query
-	 * manage the sync of the different state arrays
-	 */
 	updateQuery = (query) => {
 		
 		this.setState({
-			query,
-			listIsOpen: true
+			query: query,
+			isListEnable: true
 		});
 
-		/* Manage list displaying */
 		if (query === '') {
 			this.setState({
-			listIsOpen: false
+			isListEnable: false
 		});
 		}
 		this.handleDisplayedLocations(query);
@@ -44,25 +48,28 @@ class FilterLocations extends Component {
 
 	toggleListVisibility = () => {
 		this.setState((prevState) => ({
-			listIsOpen: !(prevState.listIsOpen)
+			isListEnable: !(prevState.isListEnable)
 		}));
 	}
 
+	/**
+	 * Add location to the array if its title match the query,
+	 * add marker to the array if its title match the query,
+	 * display the markers on the map accordingly to the state.
+	 */
 	handleDisplayedLocations = (query) => {
-		/* Manage the sync of locations */
-		let controlledThis = this;
+		
+		let that = this;
 		let filtLocations;
 		let filtMarkers;
 
 		if (query) {
 			const match = new RegExp(escapeRegExp(query), 'i');
 
-			/* Add location to the array if its title match the query */
 			filtLocations = this.props.locationsList.filter(location =>
 				match.test(location.title)
 			);
 
-			/* Add marker to the array if its title match the query */
 			filtMarkers = this.props.markers.filter(marker =>
 				match.test(marker.title)
 			);
@@ -78,70 +85,67 @@ class FilterLocations extends Component {
 			});
 		}
 
-		/* Display the markers on the map accordingly to the state */
 		this.props.markers.map(marker => marker.setVisible(false));
 		setTimeout(function () {
-			controlledThis.props.markers.map(marker =>
-				controlledThis.handleMarkersVisibility(marker))
+			that.props.markers.map(marker =>
+				that.handleMarkersVisibility(marker))
 		}, 1)
 	}
 
+	/* Make the matching markers visible on the map */
 	handleMarkersVisibility = (mark) => {
-		/* Make the matching markers visible on the map */
+		
 		this.state.markers.map(marker =>
-			mark.id === marker.id && marker.setVisible(true)
-		)
+			mark.id === marker.id && marker.setVisible(true))
 	}
 
-	/* 
-	 * Manage the animation of the markers
-	 * when clicking on the list item
+	/**
+	 * When clicking on the list item get the current 
+	 * marker animated, Open the Info Winfow accordingly.
+	 * Remove all the animations, add animation to the active marker
 	 */
 	manageClickedMarker = (location) => {
 		
-		let controlledThis = this;
+		let that = this;
 		this.removeAnimationMarker();
 		this.addAnimationMarker(location);
 		setTimeout(function () {
-			controlledThis.removeAnimationMarker()
-		}, 1250);
+			that.removeAnimationMarker()
+		}, 1500);
 
-		/* 
-		 * Get the current marker
-		 * Open the Info Winfow accordingly 
-		 */
 		this.getCurrentMarker(location);
 
 		setTimeout(function () {
-			controlledThis.props.openInfoBox(
-				controlledThis.state.currentMarker
+			that.props.openInfoBox(
+				that.state.currentMarker
 			);
 		}, 1)
 	}
 
 	removeAnimationMarker = () => {
-		/* Remove all the animations */
+
 		this.state.markers.map(marker =>
 			marker.setAnimation(null)
 		)
 	}
 
 	addAnimationMarker = (location) => {
-		/* Add animation to the active marker */
+
 		this.state.markers.map(marker =>
-			marker.id === location.short &&
+			marker.id === location.key &&
 				marker.setAnimation(
 					window.google.maps.Animation.BOUNCE)
 		);
 	}
 
+	/** 
+	 * Get the marker clicked
+	 * to give the details info in the InfoBox
+	 */
 	getCurrentMarker = (location) => {
-		/* 
-		 * Get the marker clicked
-		 * to give the good info in the InfoBox
-		 */
+		
 		this.state.markers.map(marker =>
-			marker.id === location.short &&
+			marker.id === location.key &&
 				this.setState({
 					currentMarker: marker
 				})
@@ -149,50 +153,41 @@ class FilterLocations extends Component {
 	}
 
 	render () {
-		const { query, locations, listIsOpen } = this.state;
+		const { query, locations, isListEnable } = this.state;
 
 		return (
 			<section className="list-box">
 				<form
 					className="list-form"
-					onSubmit={(event) => event.preventDefault()}
-				>
+					onSubmit={(event) => event.preventDefault()}>
 					<button
 						className="list-btn"
-						onClick={() => this.toggleListVisibility()}
-					>
-						List
-					</button>
+						onClick={() => this.toggleListVisibility()}>Places</button>
 
 					<input
 						className="list-input"
 						aria-labelledby="filter"
 						type="text"
-						placeholder="Filter Locations..."
+						placeholder="Search for places"
 						value={query}
 						onChange={(event) => 
-							this.updateQuery(event.target.value)}
-					/>
+							this.updateQuery(event.target.value)}/>
 				</form>
 
-				{
-					listIsOpen &&
-					<ul className="locations-list">
-					{
-						locations.map(location => (
-							<li
+				{isListEnable &&
+					<ul className="place-list">
+					{locations.map(location => ( <li
 								tabIndex={0}
 								role="button"
-								className="location-item"
-								short={location.short}
+								className="place-item"
+								key={location.key}
 								onClick={() => 
 									this.manageClickedMarker(location)}
 								onKeyPress={() => 
-									this.manageClickedMarker(location)}
-							>
+									this.manageClickedMarker(location)}>
+
 								{location.title}
-							</li>
-						))
+						</li> ))
 					}
 				</ul>
 				}
@@ -201,4 +196,4 @@ class FilterLocations extends Component {
 	}
 }
 
-export default FilterLocations;
+export default Locations;
