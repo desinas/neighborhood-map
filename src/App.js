@@ -21,7 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     window.initMap = this.initMap;
-    loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyC1Y06-pFfNM7Voq4ygiUcrAPHXXugYRNc&callback=initMap');
+    loadScript('https://maps.googleapis.com/maps/api/js?key=TODO-SendItHere-withEnvironmentalVariables-ONBUILD');
   }
 
   /**
